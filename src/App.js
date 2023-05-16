@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Card from "./Components/Card/Card";
 import Cart from "./Components/Cart/Cart";
+import Button from "./Components/Button/Button";
 const { getData } = require("./db/db");
 const foods = getData();
 
@@ -13,6 +14,7 @@ function App() {
   useEffect(() => {
     tele.ready();
   });
+
 
   const onAdd = (food) => {
     const exist = cartItems.find((x) => x.id === food.id);
@@ -40,9 +42,16 @@ function App() {
     }
   };
 
+
+  const Pay = () => {
+
+  };
+
   const onCheckout = () => {
-    tele.MainButton.text = "Pay :)";
-    tele.MainButton.show();
+    tele.Button.text = "Pay :)";
+    tele.Button.show();
+    tele.Button.Pay();
+
   };
 
   return (
