@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Card from "./Components/Card/Card";
 import Cart from "./Components/Cart/Cart";
-import Button from "./Components/Button/Button";
 const { getData } = require("./db/db");
 const foods = getData();
 
@@ -43,9 +42,7 @@ function App() {
   };
 
 
-  const Pay = () => {
 
-  };
 
   const onCheckout = () => {
     tele.Button.text = "Pay :)";
