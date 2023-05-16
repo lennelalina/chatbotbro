@@ -2,11 +2,12 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Card from "./Components/Card/Card";
 import Cart from "./Components/Cart/Cart";
-const { getData } = require("./db/db");
-import Button from "./Components/Button/Button";
-const foods = getData();
 
+
+const { getData } = require("./db/db");
+const foods = getData();
 const tele = window.Telegram.WebApp;
+const mainButton = window.Telegram.WebApp.MainButton;
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -45,20 +46,22 @@ function App() {
 
 
 
-  // const onCheckout = () => {
-  //   tele.Button.text = "Pay :)";
-  //   tele.Button.show();
+  const onCheckout = () => {
+    mainButton.text = `View Order`; 
+    mainButton.show();
+    mainButton.onClick(() => {handleClick()});
+  }
 
-  // };
+  const handleClick = () => {
+console.log('all');
+  }
+ 
 
-  const Pay = () => {
-   
-  };
 
   return (
     <>
       <h1 className="heading">Order Food</h1>
-      <Cart cartItems={cartItems} onCheckout={ <Button title={"pay"} type={"pay"} onClick={Pay} />}/>
+      <Cart cartItems={cartItems} onCheckout={onCheckout}/>
      
       <div className="cards__container">
         {foods.map((food) => {
