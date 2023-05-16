@@ -3,6 +3,7 @@ import "./App.css";
 import Card from "./Components/Card/Card";
 import Cart from "./Components/Cart/Cart";
 const { getData } = require("./db/db");
+import Button from "./Components/Button/Button";
 const foods = getData();
 
 const tele = window.Telegram.WebApp;
@@ -44,16 +45,21 @@ function App() {
 
 
 
-  const onCheckout = () => {
-    tele.Button.text = "Pay :)";
-    tele.Button.show();
+  // const onCheckout = () => {
+  //   tele.Button.text = "Pay :)";
+  //   tele.Button.show();
 
+  // };
+
+  const Pay = () => {
+   
   };
 
   return (
     <>
       <h1 className="heading">Order Food</h1>
-      <Cart cartItems={cartItems} onCheckout={onCheckout}/>
+      <Cart cartItems={cartItems} onCheckout={ <Button title={"pay"} type={"pay"} onClick={Pay} />}/>
+     
       <div className="cards__container">
         {foods.map((food) => {
           return (

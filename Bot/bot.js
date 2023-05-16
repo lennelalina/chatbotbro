@@ -4,6 +4,7 @@ const bot = new Telegraf(TOKEN);
 
 const web_link = "https://zippy-squirrel-0cc609.netlify.app/";
 
+
 bot.start((ctx) =>
   ctx.reply("Welcome :)))))", {
     reply_markup: {
